@@ -1,0 +1,108 @@
+.chatList {
+  flex: 1;
+  overflow: scroll;
+  .search {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+
+    .searchBar {
+      flex: 1;
+      background-color: rgba(17, 25, 40, 0.5);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border-radius: 10px;
+      padding: 10px;
+
+      input {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: white;
+        flex: 1;
+      }
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .add {
+      width: 36px;
+      height: 36px;
+      background-color: rgba(17, 25, 40, 0.5);
+      padding: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .plus-cross {
+      position: relative;
+      transition: transform 0.3s ease;
+      width: 36px;
+      height: 36px;
+      background-color: rgba(17, 25, 40, 0.5);
+      padding: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    
+    .plus-cross::before,
+    .plus-cross::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 3px;
+      background-color: black;
+      transform: translate(-50%, -50%);
+    }
+    
+    .plus-cross::before {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    
+    .plus-cross::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+    
+    /* Rotated state */
+    .plus-cross.rotate {
+      transform: rotate(45deg);
+    }
+  }
+
+  .item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    cursor: pointer;
+    border-bottom: 1px solid #dddddd35;
+
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .texts {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      span {
+        font-weight: 500;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: 300;
+      }
+    }
+  }
+}
