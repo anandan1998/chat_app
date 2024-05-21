@@ -1,0 +1,36 @@
+export const translations = {
+    en: {
+      welcomeBack: "Welcome back,",
+      createAccount: "Create an Account",
+      uploadImage: "Upload an image",
+      signUp: "Sign Up",
+      signIn: "Sign In",
+      username: "Username",
+      email: "Email",
+      password: "Password",
+      loading: "Loading",
+    },
+    hi: {
+      welcomeBack: "वापसी पर स्वागत है,",
+      createAccount: "खाता बनाएं",
+      uploadImage: "एक छवि अपलोड करें",
+      signUp: "साइन अप करें",
+      signIn: "साइन इन करें",
+      username: "उपयोगकर्ता नाम",
+      email: "ईमेल",
+      password: "पासवर्ड",
+      loading: "लोड हो रहा है",
+    },
+    sv: {
+      welcomeBack: "Välkommen tillbaka,",
+      createAccount: "Skapa ett konto",
+      uploadImage: "Ladda upp en bild",
+      signUp: "Registrera dig",
+      signIn: "Logga in",
+      username: "Användarnamn",
+      email: "E-post",
+      password: "Lösenord",
+      loading: "Laddar",
+    },
+  };
+  
