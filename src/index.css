@@ -42,3 +42,53 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
+
+@media only screen and (max-width: 1100px) {
+  .container {
+
+    width: 100vw;
+    height: 100vh;
+    
+    .hide {
+      display: none;
+    }
+
+    .top {
+      .user {
+
+        .back {
+          img {
+            filter: invert(100%) grayscale(100%);
+          }
+        }
+        img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+      
+    }
+
+    .bottom {
+      padding: 8px;
+      gap: 8px;
+
+
+      input {
+        padding: 8px;
+        font-size: 16px;
+      }
+      
+      button {
+        padding: 8px;
+        font-size: 16px;
+      }
+    }
+  }
+  
+}
+@media only screen and (min-width: 1101px) {
+  .back {
+    display: none;
+  }
+}

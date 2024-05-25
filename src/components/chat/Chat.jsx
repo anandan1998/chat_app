@@ -14,8 +14,9 @@ import { useChatStore } from "../../lib/chatStore";
 import { useUserStore } from "../../lib/userStore";
 import upload from "../../lib/upload";
 import { format } from "timeago.js";
+import { backStore } from "../../lib/backStore";
 
-const Chat = () => {
+const Chat = ({ className }) => {
   const [chat, setChat] = useState();
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
@@ -30,8 +31,12 @@ const Chat = () => {
   const { chatId, user, isCurrentUserBlocked, isReceiverBlocked, changeBlock } =
     useChatStore();
 
+  const { chatlist, setChatlist } = backStore()
+
   const endRef = useRef(null);
   const audioRef = useRef(null);
+
+  
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -153,13 +158,20 @@ const Chat = () => {
   };
 
   return (
-    <div className="chat">
+    <div className={`chat ${className}`}>
       <div className="top">
         <div className="user">
+          <div className="back">
+            <img src="./back.png" alt="" onClick={() => setChatlist(true)} />
+          </div>
           <img src={user?.avatar || "./avatar.png"} alt="" />
           <div className="texts">
-            <span>{user?.username}</span>
-            <p>Lorem ipsum dolor, sit amet.</p>
+            <h3>{user?.username}</h3>
+            {chat?.isTyping &&
+              Object.keys(chat.isTyping).some(
+                (key) => chat.isTyping[key] && key !== currentUser.id
+              ) && <p className="typing-indicator">typing...</p>
+            }
           </div>
         </div>
         <div className="icons">
@@ -199,10 +211,6 @@ const Chat = () => {
             </div>
           </div>
         )}
-        {chat?.isTyping &&
-          Object.keys(chat.isTyping).some(
-            (key) => chat.isTyping[key] && key !== currentUser.id
-          ) && <p className="typing-indicator">typing...</p>}
         <div ref={endRef}></div>
       </div>
       <div className="bottom">
@@ -216,8 +224,8 @@ const Chat = () => {
             style={{ display: "none" }}
             onChange={handleImg}
           />
-          <img src="./camera.png" alt="" />
-          <img src="./mic.png" alt="" />
+          {/* <img src="./camera.png" alt="" />
+          <img src="./mic.png" alt="" /> */}
         </div>
         <input
           type="text"

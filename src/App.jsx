@@ -8,10 +8,17 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./lib/firebase";
 import { useUserStore } from "./lib/userStore";
 import { useChatStore } from "./lib/chatStore";
+import { backStore } from "./lib/backStore";
 
 const App = () => {
   const { currentUser, isLoading, fetchUserInfo } = useUserStore();
   const { chatId } = useChatStore();
+  const { chatlist, setChatlist } = backStore()
+
+  useEffect(() => {
+  // const { chatlist } = backStore();
+  console.log(chatlist);
+}, []); 
 
   useEffect(() => {
     const unSub = onAuthStateChanged(auth, (user) => {
@@ -23,6 +30,11 @@ const App = () => {
     };
   }, [fetchUserInfo]);
 
+  useEffect(() => {
+    console.log("good",chatlist)
+    
+  }, [chatlist])
+
   if (isLoading) return <div className="loading">Loading...</div>;
 
   return (
@@ -30,8 +42,8 @@ const App = () => {
     {/* console.log({currentUser}) */}
       {currentUser ? (
         <>
-          <List />
-          {chatId && <Chat />}
+          <List className={!chatlist ? "hide": ""}/>
+          {chatId && <Chat className={chatlist ? "hide": ""}/>}
           {/* {chatId && <Detail />} */}
         </>
       ) : (
