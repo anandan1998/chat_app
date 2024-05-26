@@ -248,10 +248,10 @@ const Chat = ({ className }) => {
             </div>
           </div>
         )}
-        {chat?.isTyping &&
+        {/* {chat?.isTyping &&
           Object.keys(chat.isTyping).some(
             (key) => chat.isTyping[key] && key !== currentUser.id
-          ) && <p className="typing-indicator">{t.typing}</p>}
+          ) && <p className="typing-indicator">{t.typing}</p>} */}
         <div ref={endRef}></div>
       </div>
       <div className="bottom">
