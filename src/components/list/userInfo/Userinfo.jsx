@@ -3,7 +3,8 @@ import { useUserStore } from "../../../lib/userStore";
 import { useChatStore } from "../../../lib/chatStore";
 import { auth } from "../../../lib/firebase";
 import { useState } from "react";
-
+import { useLanguage } from "../../../lib/LanguageContext";
+import { translations } from "../../../lib/translations";
 const Userinfo = () => {
 
   const [isOpen, setIsOpen] = useState(false);
@@ -11,6 +12,8 @@ const Userinfo = () => {
 
   const {resetChat } = useChatStore();
   const { currentUser } = useUserStore();
+  const { language } = useLanguage(); // Only consume the language here
+  const t = translations[language];
 
   const handleLogout = () => {
     auth.signOut();
@@ -30,7 +33,7 @@ const Userinfo = () => {
       </div>
       {isOpen && (
             <ul className="logout-button" style={{ position: 'absolute', listStyleType: 'none', padding: 0 }}>
-                <li><button onClick={handleLogout}>Logout</button></li>
+                <li><button onClick={handleLogout}>{t.logout}</button></li>
             </ul>
         )}
     </div>

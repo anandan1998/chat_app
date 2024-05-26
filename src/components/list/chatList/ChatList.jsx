@@ -6,6 +6,8 @@ import { doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore";
 import { db } from "../../../lib/firebase";
 import { useChatStore } from "../../../lib/chatStore";
 import { backStore } from "../../../lib/backStore";
+import { useLanguage } from "../../../lib/LanguageContext";
+import { translations } from "../../../lib/translations";
 
 const ChatList = () => {
   const [chats, setChats] = useState([]);
@@ -17,6 +19,8 @@ const ChatList = () => {
   const { currentUser } = useUserStore();
   const { chatId, changeChat } = useChatStore();
   const { chatlist, setChatlist } = backStore()
+  const { language } = useLanguage(); // Only consume the language here
+  const t = translations[language];
 
   useEffect(() => {
     const unSub = onSnapshot(
@@ -87,7 +91,7 @@ const ChatList = () => {
           <img src="./search.png" alt="" />
           <input
             type="text"
-            placeholder="Search"
+            placeholder={t.search}
             onChange={(e) => setInput(e.target.value)}
           />
         </div>

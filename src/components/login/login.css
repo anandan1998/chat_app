@@ -33,6 +33,17 @@
       align-items: center;
       justify-content: center;
       gap: 20px;
+      
+      .login-email,
+      .login-password,
+      .login-email-existing,
+      .login-password-existing,
+      .login-upload,
+      .login-username,
+      .login-sign-in,
+      .login-sign-up {
+        position: relative;
+      }
 
       input {
         padding: 20px;
@@ -84,6 +95,130 @@
     background-color: #dddddd30;
   }
 }
+
+
+.login-email::after,
+.login-password::after,
+.login-email-existing::after,
+.login-password-existing::after,
+.login-upload::after,
+.login-username::after,
+.login-sign-in::after,
+.login-sign-up::after {
+  content: attr(data-tip);
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.login-email:hover::after,
+.login-password:hover::after,
+.login-upload:hover::after,
+.login-username:hover::after,
+.login-sign-in:hover::after,
+.login-sign-up:hover::after {
+  opacity: 1;
+}
+
+.rocket {
+  position: absolute;
+  bottom: -100px; /* Start below the view */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  background: url('/rocketing.png') no-repeat center center / contain;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.5s; /* Smooth opacity transition */
+}
+
+.rocket.show {
+  animation: zigzag 2s ease-in-out forwards; /* Apply zigzag animation */
+  opacity: 1; /* Make the rocket visible */
+}
+
+.hidden {
+  opacity: 0; /* Hide elements */
+  pointer-events: none; /* Disable interactions */
+}
+
+@keyframes zigzag {
+  0% {
+    bottom: 0; /* Start at the bottom */
+    left: 0; /* Start at the left */
+    transform: translate(0, 0) rotate(0deg); /* No rotation */
+  }
+  100% {
+    bottom: 100%; /* Move to the top */
+    left: 100%; /* Move to the right */
+    transform: translate(-50%, -50%) rotate(0deg); /* Reset rotation */
+  }
+}
+
+@keyframes rocketMovement {
+  0% {
+    bottom: 0; /* Start at the bottom */
+    left: 0; /* Start at the left */
+    transform: translate(0, 0) rotate(0deg); /* No rotation */
+  }
+  100% {
+    bottom: calc(100% * random()); /* Random bottom position */
+    left: calc(100% * random()); /* Random left position */
+    transform: translate(-50%, -50%) rotate(calc(-360deg + (360deg - (-360deg)) * random())); /* Random rotation */
+  }
+}
+
+.congrats-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  background-color: rgba(31, 142, 241, 0.9);
+  color: white;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s, transform 0.5s;
+  z-index: 10; /* Ensure it appears above other elements */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  animation: pop-in 0.5s ease-in-out forwards;
+}
+
+.congrats-message.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+@keyframes pop-in {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+
+
 
 /* login intial version */
 /* .login {
