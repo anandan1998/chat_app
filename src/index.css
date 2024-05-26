@@ -53,6 +53,19 @@ body {
       display: none;
     }
 
+    .login {
+      flex-direction: column;
+      padding: 20px 0;
+      gap: 20px;
+      
+
+      .separator {
+
+        display: none;
+
+      }
+    }
+
     .top {
       .user {
 
@@ -85,6 +98,10 @@ body {
       }
     }
   }
+
+  .__floater__body .react-joyride__tooltip {
+    width: 314px !important;
+}
   
 }
 @media only screen and (min-width: 1101px) {

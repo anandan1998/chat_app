@@ -5,6 +5,7 @@
   align-items: center;
   gap: 100px;
   position: relative;
+  overflow: hidden;
 
   .language-selector {
     position: absolute;
