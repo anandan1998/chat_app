@@ -1,14 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./chat.css";
 import EmojiPicker from "emoji-picker-react";
-import {
-  arrayUnion,
-  arrayRemove,
-  doc,
-  getDoc,
-  onSnapshot,
-  updateDoc,
-} from "firebase/firestore";
+import {arrayUnion,arrayRemove,doc, getDoc,onSnapshot, updateDoc,} from "firebase/firestore";
 import { db } from "../../lib/firebase";
 import { useChatStore } from "../../lib/chatStore";
 import { useUserStore } from "../../lib/userStore";
@@ -31,8 +24,7 @@ const Chat = ({ className }) => {
   const [isTyping, setIsTyping] = useState(false);
 
   const { currentUser } = useUserStore();
-  const { chatId, user, isCurrentUserBlocked, isReceiverBlocked, changeBlock } =
-    useChatStore();
+  const { chatId, user, isCurrentUserBlocked, isReceiverBlocked, changeBlock } = useChatStore();
 
   const { chatlist, setChatlist } = backStore()
 
@@ -248,10 +240,6 @@ const Chat = ({ className }) => {
             </div>
           </div>
         )}
-        {/* {chat?.isTyping &&
-          Object.keys(chat.isTyping).some(
-            (key) => chat.isTyping[key] && key !== currentUser.id
-          ) && <p className="typing-indicator">{t.typing}</p>} */}
         <div ref={endRef}></div>
       </div>
       <div className="bottom">

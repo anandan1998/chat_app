@@ -49,26 +49,6 @@
       cursor: pointer;
     }
     
-    .plus-cross::before,
-    .plus-cross::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 100%;
-      height: 3px;
-      background-color: black;
-      transform: translate(-50%, -50%);
-    }
-    
-    .plus-cross::before {
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
-    
-    .plus-cross::after {
-      transform: translate(-50%, -50%) rotate(90deg);
-    }
-    
     /* Rotated state */
     .plus-cross.rotate {
       transform: rotate(45deg);

@@ -79,9 +79,9 @@ const Login = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       setShowAnimation(true);
-      setTimeout(() => {
+      // setTimeout(() => {
         navigate("/chat");
-      }, 5000);
+      // }, 5000);
     } catch (err) {
       console.log(err);
       toast.error(err.message);

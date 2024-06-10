@@ -7,7 +7,6 @@
 }
 
 body {
-  /* background-image: url("/chat-bg.jpeg"); */
   background: url("/shower.gif"), url("/chat-bg.jpeg");
   display: flex;
   align-items: center;
@@ -15,10 +14,6 @@ body {
   height: 100vh;
   color: white;
   background-size: contain , contain;
-
-  /* #root {
-    background-image: url("/shower.gif");
-  } */
 }
 
 .container {
@@ -57,7 +52,7 @@ body {
       flex-direction: column;
       padding: 20px 0;
       gap: 20px;
-      
+
 
       .separator {
 
